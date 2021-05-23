@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome to great number game!</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, velit?</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div><h3>{{request.session.num}} was the right number!</h3>
+    <form action="/play_again" method="POST">
+        {%csrf_token%}
+        <button type="submit">play again </button>
+        
+    </form>
+    
+    </div>
+</body>
+</html>

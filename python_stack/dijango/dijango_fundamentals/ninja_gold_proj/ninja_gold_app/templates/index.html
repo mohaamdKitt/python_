@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        display: inline-flex;
+        margin: 0 auto;
+        }
+    .main form{
+        padding: 0px 20px 30px 20px;
+        text-align: center;
+    }
+    .main button{
+        background-color: gold;
+    }
+    
+</style>
+<body>
+    <h1> YOur gold in : {{request.session.gold_counter}}</h1>
+    <div class="main">
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <h>farm</h>
+            <p>(earn 10-20 golds )</p>
+            <input type="hidden" name="process" value="farm">
+            <button type="submit">go</button>
+        </form>
+
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <h>cave</h>
+            <p>(earn 5-10 golds )</p>
+            <input type="hidden" name="process" value="cave">
+            <button type="submit">go</button>
+        </form>
+
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <h>house</h>
+            <p>(earn 2-5 golds )</p>
+            <input type="hidden" name="process" value="house">
+            <button type="submit">go</button>
+        </form>
+
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <h>casino</h>
+            <p>(earn -50-50 golds )</p>
+            <input type="hidden"name="process" value="casino">
+            <button type="submit">go</button>
+        </form>
+    </div>
+    <form action="/del">
+        <button type="submit">reset</button>
+    </form>   
+    <div class="activity">
+        {%for i in request.session.activate %}
+            {{i}} <br>
+        {%endfor %}
+    </div>
+    
+</body>
+</html>
